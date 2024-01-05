@@ -36,7 +36,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
-        continue-on-error: true
         id: test-codes
         run: npm run test
       - name: Upload test report
@@ -45,6 +44,7 @@ jobs:
           name: test-report
           path: test.json
   build:
+    continue-on-error: true
     needs: test
     runs-on: ubuntu-latest
     steps:
