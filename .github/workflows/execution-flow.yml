@@ -75,4 +75,11 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy
-        run: echo "Deploying..."
+        run: echo "Deploying...
+  output:
+    needs: [lint, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: run the shell cmd
+        run: echo "hello output"
