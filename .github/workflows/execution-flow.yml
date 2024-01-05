@@ -76,7 +76,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy
-        run: echo "Deploying...
+        run: echo "Deploying"
   output:
     needs: [lint, deploy]
     if: failure()
